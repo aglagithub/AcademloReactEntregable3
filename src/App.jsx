@@ -13,15 +13,18 @@ function App() {
     /* const URL = `https://rickandmortyapi.com/api/location/${getRandomDimension()}` */
 
     const URL = `https://rickandmortyapi.com/api/location/${dimensionId}`
-    console.log(URL)
+    //console.log(URL)
 
+    /* LLamada al servicio */
     axios.get(URL)
       .then(({ data }) => {
-        console.log(data)
+        //console.log(data)
         setLocation(data)
       })
       .catch((err) => { console.log(err) })
       .finally(() => { console.log("LLamada a servicio finalizada") })
+       /* LLamada al servicio. End */
+
   }, [dimensionId])
 
   return (
@@ -34,7 +37,8 @@ function App() {
         <div> {location?.dimension}</div>
         <div>{location?.type}</div>
         <div>{location?.residents.length}</div> */}
-        <Location location={location} />
+        
+         <Location location={location}  setLocation={setLocation} />
         <ResidentList residents={location?.residents}/>
 
 

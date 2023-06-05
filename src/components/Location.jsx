@@ -1,11 +1,35 @@
 import React from 'react'
+import axios from 'axios'
 
-const Location = ({location}) => {
+const Location = ({location,setLocation}) => {
     console.log("Location received in component:",location)
-  return (
+    
+    const handleSubmit = (event) => {
+      event.preventDefault()
+      const newLocation = event.target.newLocation.value
+      //console.log("Search Button clicked",newLocation)
+      const URL =`https://rickandmortyapi.com/api/location/${newLocation}`
+      //console.log("Localización to search: ",URL)
+
+      /* LLamada al servicio */
+      axios.get(URL)
+      .then(({ data }) => {
+        //console.log("Información Recibida al pulsar botón: ",data)
+        setLocation(data)
+      })
+      .catch((err) => { console.log(err) })
+      .finally(() => { console.log("LLamada a servicio finalizada") })
+       /* LLamada al servicio. End */
+    }
+    return (
     <>
   <section>
     {/* Input de búsqueda */}
+    <form className="flex justify-center" onSubmit={handleSubmit}> 
+      <input placeholder="Type a location Id ..."type="text" id="newLocation"  className='text-black'/>
+      <button>Search</button>
+      <i className='bx bx-search'></i>
+    </form>
     {/* Info Location */}
     <section>
         {/*  */}
