@@ -1,48 +1,50 @@
 import React from 'react'
 import axios from 'axios'
 
-const Location = ({location,setLocation}) => {
-    console.log("Location received in component:",location)
-    
-    const handleSubmit = (event) => {
-      event.preventDefault()
-      const newLocation = event.target.newLocation.value
-      //console.log("Search Button clicked",newLocation)
-      const URL =`https://rickandmortyapi.com/api/location/${newLocation}`
+const Location = ({ location, setLocation }) => {
+  console.log("Location received in component:", location)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const newLocation = event.target.newLocation.value
+    //console.log("Search Button clicked",newLocation)
+    if (newLocation) {
+      const URL = `https://rickandmortyapi.com/api/location/${newLocation}`
       //console.log("Localización to search: ",URL)
 
       /* LLamada al servicio */
       axios.get(URL)
-      .then(({ data }) => {
-        //console.log("Información Recibida al pulsar botón: ",data)
-        setLocation(data)
-      })
-      .catch((err) => { console.log(err) })
-      .finally(() => { console.log("LLamada a servicio finalizada") })
-       /* LLamada al servicio. End */
+        .then(({ data }) => {
+          //console.log("Información Recibida al pulsar botón: ",data)
+          setLocation(data)
+        })
+        .catch((err) => { console.log(err) })
+        .finally(() => { console.log("LLamada a servicio finalizada") })
     }
-    return (
+    /* LLamada al servicio. End */
+  }
+  return (
     <>
-  <section>
-    {/* Input de búsqueda */}
-    <form className="flex justify-center" onSubmit={handleSubmit}> 
-      <input placeholder="Type a location Id ..."type="text" id="newLocation"  className='text-black'/>
-      <button>Search</button>
-      <i className='bx bx-search'></i>
-    </form>
-    {/* Info Location */}
-    <section>
-        {/*  */}
-        <h2 className="text-center text-xl py-2">{location?.name }</h2>
-        <ul className='flex gap-2 p-2'>
+      <section>
+        {/* Input de búsqueda */}
+        <form className="flex justify-center" onSubmit={handleSubmit}>
+          <input placeholder="Type a location Id ..." type="text" id="newLocation" className='text-black' />
+          <button>Search</button>
+          <i className='bx bx-search'></i>
+        </form>
+        {/* Info Location */}
+        <section>
+          {/*  */}
+          <h2 className="text-center text-xl py-2">{location?.name}</h2>
+          <ul className='flex gap-2 p-2'>
             <li>type: {location?.type}</li>
             <li>dimension: {location?.dimension}</li>
             <li>population: {location?.residents.length}</li>
-        </ul>
-    </section>
-  </section>
+          </ul>
+        </section>
+      </section>
     </>
   )
-} 
+}
 
 export default Location 

@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 
 const Resident = ({ residentUrl }) => {
-    //console.log("URL Información del residente: ", { residentUrl })
+    console.log("URL Información del residente: ", { residentUrl })
     const [residentInfo, setResidentInfo] = useState(null)
     /* Objeto con colores para el circulo del status */
     const statusStyles = {
         "Alive" :"bg-green-500",
         "Dead" :"bg-red-500",
-        "unknown" :"bg-gray-400",
+        "unknown" :"bg-zinc-400",
     }
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const Resident = ({ residentUrl }) => {
                 setResidentInfo(data)
             })
             .catch((err) => { console.log(err) })
-            .finally(() => { console.log("LLamada a servicio información de Resudente .Finalizada") })
+            .finally(() => { console.log("LLamada a servicio información de Residente .Finalizada") })
     }, [])
 
 
