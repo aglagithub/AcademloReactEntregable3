@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 const Location = ({ location, setLocation }) => {
-  console.log("Location received in component:", location)
+  //console.log("Location received in component:", location)
 
   const handleSubmit = (event) => {
     event.preventDefault()
