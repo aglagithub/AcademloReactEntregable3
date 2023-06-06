@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const Location = ({ location, setLocation }) => {
+const Location = ({ location, setLocation,setPage }) => {
   //console.log("Location received in component:", location)
 
   const handleSubmit = (event) => {
@@ -17,6 +17,7 @@ const Location = ({ location, setLocation }) => {
         .then(({ data }) => {
           //console.log("Información Recibida al pulsar botón: ",data)
           setLocation(data)
+          setPage(1)
         })
         .catch((err) => { 
           console.log(err) 
@@ -32,7 +33,7 @@ const Location = ({ location, setLocation }) => {
       <section >
         
         {/* Input de búsqueda */}
-        <div className="flex justify-center pb-5 inline-block">
+        <div className="flex justify-center pb-5">
         <form className=" border-3 border-solid  border-green-200" onSubmit={handleSubmit}>
           <input placeholder=" Type a location Id ..." type="text" id="newLocation" className='text-black py-1' />&nbsp;
           <button className="px-2 py-1 bg-green-700">Search <i className='bx bx-search px-2'></i>

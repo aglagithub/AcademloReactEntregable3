@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { paginationLogic } from '../utils/pagination'
 
 const FIRST_PAGE = 1
-const ResidentList = ({ residents }) => {
+const ResidentList = ({ residents, page }) => {
     //console.log("Residents:", residents)
     let residentsToShow = residents
     let numerosPagina = []
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(page)
 
     if (residents) {
         const { pages, residentsInPage } = paginationLogic(currentPage, residents)
@@ -17,6 +17,7 @@ const ResidentList = ({ residents }) => {
         //console.log("Residents in Page:", residentsInPage)
         residentsToShow = residentsInPage
         numerosPagina = pages
+        
     }
 
     /* const {pages,residentsInPage} = paginationLogic(currentPage,residents) */
@@ -28,7 +29,7 @@ useEffect(() => {
  
 setCurrentPage(FIRST_PAGE)
  
-}, [location])
+}, [residents])
 
     
     return (

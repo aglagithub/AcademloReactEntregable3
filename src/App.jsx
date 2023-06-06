@@ -7,6 +7,8 @@ import ResidentList from "./components/ResidentList";
 function App() {
   const [dimensionId, setDimensionId] = useState(getRandomDimension())
   const [location, setLocation] = useState(null)
+  const [page,setPage] = useState(1)
+
 
   useEffect(() => {
 
@@ -20,6 +22,7 @@ function App() {
       .then(({ data }) => {
         //console.log(data)
         setLocation(data)
+        setPage(1)
       })
       .catch((err) => {
         console.log(err)
@@ -44,10 +47,11 @@ function App() {
               <div> {location?.dimension}</div>
               <div>{location?.type}</div>
                <div>{location?.residents.length}</div> */}
-       {/*  <img src="/images/background_image.png" alt="background" /> */}
+   
        <img className=" mx-auto object-contain"src="/images/Image_Header.png" alt="Image Header"  /> 
-        <Location location={location} setLocation={setLocation} />
-        <ResidentList residents={location?.residents} />
+     
+        <Location location={location} setLocation={setLocation} setPage={setPage}/> 
+        <ResidentList residents={location?.residents} page= {page}/>
 
 
 
