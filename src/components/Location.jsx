@@ -33,7 +33,7 @@ const Location = ({ location, setLocation }) => {
         
         {/* Input de búsqueda */}
         <div className="flex justify-center pb-5 inline-block">
-        <form className=" border-3 border-solid  border-[#39764c]" onSubmit={handleSubmit}>
+        <form className=" border-3 border-solid  border-green-200" onSubmit={handleSubmit}>
           <input placeholder="  Type a location Id ..." type="text" id="newLocation" className='text-black py-1' />
           <button className="px-5 py-1 bg-green-700">Search <i className='bx bx-search px-2'></i>
 </button>
