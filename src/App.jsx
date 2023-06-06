@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <main className=" min-h-full -mt-8 text-white bg-[url('public/images/background_image.png')"  style={{
+      <main className=" min-h-full  text-white bg-[url('public/images/background_image.png')"  style={{
             backgroundImage:
               "url('/images/background_image.png')", 
           }}>
@@ -45,7 +45,7 @@ function App() {
               <div>{location?.type}</div>
                <div>{location?.residents.length}</div> */}
        {/*  <img src="/images/background_image.png" alt="background" /> */}
-       <img className="scale-50 "src="/images/Image_Header.png" alt="Backgound"  /> 
+       <img className=" mx-auto object-contain"src="/images/Image_Header.png" alt="Image Header"  /> 
         <Location location={location} setLocation={setLocation} />
         <ResidentList residents={location?.residents} />
 
