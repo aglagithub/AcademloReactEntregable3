@@ -21,25 +21,33 @@ function App() {
         //console.log(data)
         setLocation(data)
       })
-      .catch((err) => { console.log(err) })
-      .finally(() => { console.log("LLamada a servicio finalizada") })
-       /* LLamada al servicio. End */
+      .catch((err) => {
+        console.log(err)
+      })
+      .finally(() => { 
+        //console.log("LLamada a servicio finalizada") 
+      })
+    /* LLamada al servicio. End */
 
   }, [dimensionId])
 
   return (
     <>
-      <main className="bg-black min-h-full text-white">
+      <main className=" min-h-full -mt-8 text-white bg-[url('public/images/background_image.png')"  style={{
+            backgroundImage:
+              "url('/images/background_image.png')", 
+          }}>
         {/* {getRandomDimension()}
         <br />  */}
         {/*   <div>{location?.id}</div> 
-           <div>{location?.name}</div> 
-        <div> {location?.dimension}</div>
-        <div>{location?.type}</div>
-        <div>{location?.residents.length}</div> */}
-        
-         <Location location={location}  setLocation={setLocation} />
-        <ResidentList residents={location?.residents}/>
+              <div>{location?.name}</div> 
+              <div> {location?.dimension}</div>
+              <div>{location?.type}</div>
+               <div>{location?.residents.length}</div> */}
+       {/*  <img src="/images/background_image.png" alt="background" /> */}
+       <img className="scale-50 "src="/images/Image_Header.png" alt="Backgound"  /> 
+        <Location location={location} setLocation={setLocation} />
+        <ResidentList residents={location?.residents} />
 
 
 

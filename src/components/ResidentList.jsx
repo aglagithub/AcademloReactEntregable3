@@ -22,8 +22,8 @@ const ResidentList = ({ residents }) => {
     /* const {pages,residentsInPage} = paginationLogic(currentPage,residents) */
     //console.log("current page:", currentPage)
 
-    /* console.log("pages:",pages)
-    console.log("Residents in Page:",residentsInPage) */
+    // console.log("pages:",pages)
+    //console.log("Residents in Page:",residentsInPage) 
 useEffect(() => {
  
 setCurrentPage(FIRST_PAGE)
@@ -33,10 +33,10 @@ setCurrentPage(FIRST_PAGE)
     
     return (
         <>
-            <section className="px-3">
+            <section className="px-3 ">
 
                 {/* Lista de Residentes */}
-                <section className='grid gap-8 grid-cols-[repeat(auto-fill,_280px)] justify-center max-w-[1024px] mx-auto py-6 '>
+                <section className='grid gap-8 grid-cols-[repeat(auto-fill,_280px)] justify-center max-w-[1024px] mx-auto py-6 justify-items-center'>
                     {/*  {residents?.[0]} */}
                     {
                         residentsToShow?.map((resident, index) =>
@@ -51,9 +51,9 @@ setCurrentPage(FIRST_PAGE)
             {/* Paginación */}
             <section className="flex justify-center gap-4 flex-wrap pb-8">
                 {
-                    numerosPagina.map(numeroPagina => <button
+                    numerosPagina.map(numeroPagina => <button key={numeroPagina}
                         onClick={() => { setCurrentPage(numeroPagina) }}
-                        className={`bg-green-700 p-2 px-3 rounded-md ${(numeroPagina===currentPage)?"bg-red-400":"bg-green-700"}`}>
+                        className={` bg-[#062226]  p-2 px-3 rounded-md ${(numeroPagina===currentPage)?"bg-[#39764c]":"bg-[#062226]"}`}>
                         {numeroPagina}
                     </button>)
 

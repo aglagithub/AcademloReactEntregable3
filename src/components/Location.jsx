@@ -18,25 +18,33 @@ const Location = ({ location, setLocation }) => {
           //console.log("Información Recibida al pulsar botón: ",data)
           setLocation(data)
         })
-        .catch((err) => { console.log(err) })
-        .finally(() => { console.log("LLamada a servicio finalizada") })
+        .catch((err) => { 
+          console.log(err) 
+        })
+        .finally(() => { 
+          //console.log("LLamada a servicio finalizada") 
+        })
     }
     /* LLamada al servicio. End */
   }
   return (
     <>
-      <section>
+      <section >
+        
         {/* Input de búsqueda */}
-        <form className="flex justify-center" onSubmit={handleSubmit}>
-          <input placeholder="Type a location Id ..." type="text" id="newLocation" className='text-black' />
-          <button>Search</button>
-          <i className='bx bx-search'></i>
-        </form>
+        <div className="flex justify-center pb-5 inline-block">
+        <form className=" border-3 border-solid  border-[#39764c]" onSubmit={handleSubmit}>
+          <input placeholder="  Type a location Id ..." type="text" id="newLocation" className='text-black py-1' />
+          <button className="px-5 py-1 bg-green-700">Search <i className='bx bx-search px-2'></i>
+</button>
+                  </form>
+        </div>
+        <div className='text-center text-green-500'>!Welcome to the crazy universe!</div>
         {/* Info Location */}
         <section>
           {/*  */}
           <h2 className="text-center text-xl py-2">{location?.name}</h2>
-          <ul className='flex gap-2 p-2'>
+          <ul className='flex gap-3 p-2 justify-center'>
             <li>type: {location?.type}</li>
             <li>dimension: {location?.dimension}</li>
             <li>population: {location?.residents.length}</li>
